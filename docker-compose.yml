@@ -1,0 +1,12 @@
+version: "3"
+services: 
+    mongo-server:
+        image: mongo
+    node-server:
+        restart: always
+        build: .
+        volumes:
+        - "/project/node_modules"
+        - ".:/project"
+        ports: 
+            - "5600:5600"
