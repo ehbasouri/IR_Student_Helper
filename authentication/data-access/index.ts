@@ -1,4 +1,7 @@
 import {makeUsersDb} from './auth-db'
-
-export default makeUsersDb;
+import {makeBankAccountsDb} from "./bankAccountDB"
+export {
+    makeUsersDb,
+    makeBankAccountsDb
+};
 

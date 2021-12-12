@@ -1,4 +1,4 @@
-import makeUser from '../entities';
+import {makeUser} from '../entities';
 import { UserType } from '../entities/user';
 import {MakeUsersDb} from "../data-access/auth-db"
 

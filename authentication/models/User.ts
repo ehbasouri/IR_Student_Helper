@@ -1,8 +1,5 @@
 import mongoose, { Model, Schema } from "mongoose";
 
-// nationalId?: NationalID;
-// source: MakeSourceParams;
-
 const UserSchema :Schema<any, Model<any, any, any, any>, any> = new mongoose.Schema({
     username: {
         type: String,

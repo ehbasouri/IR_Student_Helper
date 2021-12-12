@@ -14,6 +14,7 @@ export interface HttpRequest {
   method: any;
   path: any;
   headers: any;
+  authorization: string | undefined;
 }
 
 export default function makeExpressCallback (controller: (httpRequest: HttpRequest) => Promise<Controller>) : (req: Request, res: Response) => Promise<void> {
@@ -25,10 +26,11 @@ export default function makeExpressCallback (controller: (httpRequest: HttpReque
       ip: req.ip,
       method: req.method,
       path: req.path,
+      authorization: req.headers.authorization,
       headers: {
         'Content-Type': req.get('Content-Type'),
         Referer: req.get('referer'),
-        'User-Agent': req.get('User-Agent')
+        'User-Agent': req.get('User-Agent'),
       }
     }
     try {

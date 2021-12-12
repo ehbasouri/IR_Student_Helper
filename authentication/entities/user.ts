@@ -24,16 +24,24 @@ export interface UserType {
     nationalId?: NationalID;
     avatar?: string
     source: MakeSourceParams;
+    _id?: string;
 }
 
 interface MakeUser {
     getFirstName(): string;
     getLastName(): string;
+    getPhone(): string;
+    getMobile(): string;
+    getAddress(): string;
+    getUsername(): string;
     getSource(): MakeSourceParams
     getEmail(): string
     getPassword(): string;
     getBankAccount(): string[];
     encrypPassword(): string;
+    getNationalId(): NationalID | object;
+    getAvatar(): string;
+
 }
 
 export default function buildMakeUser({makeSource, encryptPassword, isValidEmail}: BuildMakeUser) : (userType: UserType) => Readonly<MakeUser> {
@@ -71,7 +79,7 @@ export default function buildMakeUser({makeSource, encryptPassword, isValidEmail
             getAddress: () => address || "",
             getUsername: () => username || "",
             getBankAccount: () => bankAccount || [],
-            geNationalId: () => nationalId || {},
+            getNationalId: () => nationalId || {},
             getAvatar: () => avatar || "",
             getSource: () => ({
                 ip: validSource.getIp(),

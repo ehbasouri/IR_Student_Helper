@@ -1,4 +1,4 @@
-import makeUser from '../entities';
+import {makeUser} from '../entities';
 import { UserType } from '../entities/user';
 import {MakeUsersDb} from "../data-access/auth-db"
 
@@ -25,7 +25,6 @@ export default function makeLogin ({ userDb, compareSync }: makeRegisterParams) 
         if(!compareSync(userInfo.password, newUser.getPassword())){
             throw new RangeError('Password mismatch.')
         }
-
         return existing;
     }
   } 
